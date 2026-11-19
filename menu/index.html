@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="孙岩萍的品牌新媒体运营作品集。按案例浏览团队管理、用户增长、视频号搭建、小红书种草与活动运营。">
+  <meta name="theme-color" content="#f5f3ed">
+  <title>孙岩萍｜新媒体运营作品集</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../gallery.js" defer></script>
+  <style>
+    html { scroll-behavior: auto; }
+    [hidden] { display: none !important; }
+    .menu-header { min-height: 62px; }
+    .menu-header nav { gap: clamp(12px, 3vw, 30px); }
+    .menu-intro { padding-block: clamp(22px, 4vw, 46px) 22px; }
+    .menu-intro h1 { font: 700 clamp(2rem, 4.5vw, 4rem)/1.14 var(--serif); margin: 6px 0 9px; }
+    .menu-intro p:last-child { color: var(--muted); }
+    .menu-directory h2 { font-size: 1.18rem; margin-bottom: 12px; }
+    .menu-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .menu-card {
+      min-width: 0; display: flex; flex-direction: column; border: 1px solid var(--line);
+      border-radius: 7px; overflow: hidden; background: var(--white); text-decoration: none;
+    }
+    .menu-card:hover { border-color: var(--leaf); }
+    .menu-card:first-child { box-shadow: inset 0 -3px var(--leaf); }
+    .menu-card img {
+      aspect-ratio: 1.9; width: 100%; height: auto; object-fit: cover;
+      background: var(--thumb-color, #e5ece3); border-bottom: 1px solid var(--line);
+    }
+    .menu-card[href="#growth"] img { object-position: 50% 44%; }
+    .menu-card[href="#channels"] img { object-position: 50% 40%; --thumb-color:#e8e9df; }
+    .menu-card[href="#seeding"] img { object-position: 50% 26%; --thumb-color:#f2e7df; }
+    .menu-card[href="#luhan"] img { object-position: 50% 36%; --thumb-color:#eae5ef; }
+    .menu-card-copy { display: flex; flex-direction: column; flex: 1; gap: 5px; padding: 12px 13px 15px; }
+    .menu-category { color: var(--leaf); font-size: .875rem; font-weight: 650; line-height: 1.35; }
+    .menu-card h3 { font-size: clamp(1rem, 1.51vw, 1.24rem); line-height: 1.33; text-wrap: initial; }
+    .menu-evidence { margin-top: auto; color: var(--muted); font-size: .9rem; line-height: 1.42; }
+    .menu-more { border-block: 1px solid var(--line); margin: 22px 0 14px; }
+    .menu-more summary { width: fit-content; cursor: pointer; min-height: 44px; padding-block: 8px; color: var(--leaf); font-weight: 650; }
+    .menu-more .other-grid { margin-bottom: 15px; }
+    .menu-footer { margin-top: 22px; border-top: 1px solid var(--line); }
+
+    .menu-detail { padding-top: 18px; }
+    .menu-back { display: inline-flex; align-items: center; min-height: 44px; color: var(--leaf); font-weight: 650; text-underline-offset: 4px; }
+    .menu-detail-layout {
+      display: grid; grid-template-columns: clamp(145px, 18vw, 207px) minmax(0, 1fr);
+      align-items: start; gap: clamp(14px, 2.9vw, 36px); margin-top: 8px;
+    }
+    .menu-detail-nav { flex-direction: column; align-items: stretch; gap: 6px; position: sticky; top: 20px; }
+    .menu-detail-nav a {
+      white-space: normal; display: flex; align-items: center; min-height: 44px; padding: 6px 9px;
+      border: 1px solid var(--line); background: var(--white); border-radius: 4px; line-height: 1.35;
+    }
+    .menu-detail-nav a[aria-current="page"] { background: var(--forest); color: white; border-color: var(--forest); }
+    .menu-detail-nav a:hover { border-color: var(--leaf); }
+    .menu-detail-content { min-width: 0; }
+    .menu-detail-content .case { padding: clamp(17px, 3vw, 37px); margin-bottom: 10px; }
+    .menu-detail-content .case-heading { display: block; padding-bottom: 14px; margin-bottom: 18px; }
+    .menu-detail-content .case-heading > p { margin-top: 9px; }
+    .menu-detail-content .case-heading h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); }
+    .menu-detail-content .case-columns { gap: clamp(16px, 3vw, 34px); }
+    .menu-glance { margin-bottom: 20px; }
+    .menu-glance .inline-metrics, .menu-glance .results { margin-top: 0; }
+    .menu-glance .results > div { padding: 10px 13px; }
+    .menu-glance .menu-evidence { font-size: 1rem; color: var(--leaf); font-weight: 650; }
+    .menu-loading { color: var(--muted); padding: 16px 0; }
+
+    @media (max-width: 860px) {
+      .menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .menu-card img { aspect-ratio: 2.55; }
+    }
+    @media (max-width: 650px) {
+      .menu-header { min-height: 53px; }
+      .menu-intro { padding: 21px 0 17px; }
+      .menu-intro h1 { margin-bottom: 6px; }
+      .menu-intro p:last-child { line-height: 1.53; }
+      .menu-directory h2 { margin-bottom: 9px; }
+      .menu-grid { gap: 9px; }
+      .menu-card-copy { padding: 8px 9px 10px; gap: 4px; }
+      .menu-card h3 { min-height: 2.66em; }
+      .menu-card img { aspect-ratio: 2.15; }
+      .menu-more { margin-top: 16px; }
+      .menu-detail { padding-top: 7px; }
+      .menu-detail-layout { display: flex; flex-direction: column-reverse; }
+      .menu-detail-layout > * { width: 100%; }
+      .menu-detail-nav { display: grid; grid-template-columns: 1fr 1fr; position: static; }
+      .menu-detail-content .case-heading { margin-bottom: 14px; }
+      .menu-footer { margin-top: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header menu-header wrap">
+    <a class="wordmark" href="#cases" aria-label="孙岩萍作品集首页">孙岩萍 <span>作品集</span></a>
+    <nav aria-label="主导航">
+      <a href="#cases">代表案例</a>
+      <a href="../#experience">工作经历</a>
+      <a href="mailto:beibiduo@163.com">联系我</a>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap">
+    <div id="menu-home">
+      <section class="menu-intro" aria-labelledby="menu-title">
+        <p class="kicker">新媒体运营经理 · 广州</p>
+        <h1 id="menu-title">品牌新媒体运营作品集</h1>
+        <p>9 年以上经验，涵盖社媒增长、团队管理、品牌账号搭建与达人内容。</p>
+      </section>
+      <section class="menu-directory" id="cases" aria-labelledby="menu-cases-title">
+        <h2 id="menu-cases-title" tabindex="-1">代表案例</h2>
+        <div class="menu-grid">
+          <a class="menu-card" href="#growth">
+            <img src="../assets/kugou-cover.webp" width="1448" height="1086" alt="">
+            <div class="menu-card-copy">
+              <p class="menu-category">团队管理 · 用户增长</p>
+              <h3>酷狗社媒与客户端引流</h3>
+              <p class="menu-evidence">累计引流 256 万人次</p>
+            </div>
+          </a>
+          <a class="menu-card" href="#channels">
+            <img src="../assets/channels-works.png" width="1948" height="1060" alt="">
+            <div class="menu-card-copy">
+              <p class="menu-category">账号搭建 · 原创内容</p>
+              <h3>逆时光颜究院视频号</h3>
+              <p class="menu-evidence">账号历史粉丝 3.1 万+</p>
+            </div>
+          </a>
+          <a class="menu-card" href="#seeding">
+            <img src="../assets/red-reference-1.png" width="1280" height="2774" alt="">
+            <div class="menu-card-copy">
+              <p class="menu-category">小红书 · 达人内容</p>
+              <h3>胶原炮面膜达人种草</h3>
+              <p class="menu-evidence">选题、Brief、脚本与审稿</p>
+            </div>
+          </a>
+          <a class="menu-card" href="#luhan">
+            <img src="../assets/luhan-topic.png" width="306" height="555" alt="">
+            <div class="menu-card-copy">
+              <p class="menu-category">节点传播 · 用户投稿</p>
+              <h3>鹿晗演唱会小红书活动</h3>
+              <p class="menu-evidence">相关话题累计浏览 16.8 万次</p>
+            </div>
+          </a>
+        </div>
+      </section>
+      <details class="menu-more">
+        <summary>更多品牌内容作品</summary>
+        <div class="other-grid">
+          <a href="https://yanpingsun.github.io/yanping-portfolio-site/preview/v3/#/project/oil"><img src="../assets/oil-cover.webp" width="1448" height="1086" alt="" loading="lazy"><strong>日夜精华油</strong></a>
+          <a href="https://yanpingsun.github.io/yanping-portfolio-site/preview/v3/#/project/mask"><img src="../assets/mask-cover.webp" width="1067" height="1600" alt="" loading="lazy"><strong>童颜面膜</strong></a>
+          <a href="https://yanpingsun.github.io/yanping-portfolio-site/preview/v3/#/project/sun"><img src="../assets/sun-cover.webp" width="1072" height="978" alt="" loading="lazy"><strong>防晒</strong></a>
+          <a href="https://yanpingsun.github.io/yanping-portfolio-site/preview/v3/#/project/clean"><img src="../assets/clean-cover.webp" width="894" height="870" alt="" loading="lazy"><strong>逆时光洁颜霜</strong></a>
+        </div>
+      </details>
+      <noscript><p><a href="../#projects">在完整作品集查看四个案例</a></p></noscript>
+    </div>
+
+    <section class="menu-detail" id="menu-detail" aria-label="案例详情" hidden>
+      <a class="menu-back" href="#cases">返回代表案例</a>
+      <div class="menu-detail-layout">
+        <nav class="menu-detail-nav" aria-label="切换案例">
+          <a href="#growth">酷狗社媒引流</a>
+          <a href="#channels">品牌视频号</a>
+          <a href="#seeding">胶原炮达人种草</a>
+          <a href="#luhan">鹿晗演唱会活动</a>
+        </nav>
+        <div class="menu-detail-content" id="menu-content"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap site-footer menu-footer">
+    <span>孙岩萍 · 品牌新媒体运营作品集</span>
+    <a href="../">查看长页版</a>
+  </footer>
+
+  <dialog id="gallery" aria-labelledby="gallery-title">
+    <div class="dialog-bar">
+      <h2 id="gallery-title">作品原图</h2>
+      <div class="dialog-actions">
+        <button type="button" id="gallery-size" aria-pressed="false">按宽度查看</button>
+        <form method="dialog"><button type="submit">关闭</button></form>
+      </div>
+    </div>
+    <div class="dialog-image"><img id="gallery-image" alt=""></div>
+  </dialog>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const cards = Array.from(document.querySelectorAll('.menu-card'));
+      const links = document.querySelectorAll('.menu-detail-nav a');
+      const menu = document.getElementById('menu-home');
+      const detail = document.getElementById('menu-detail');
+      const content = document.getElementById('menu-content');
+      const gallery = document.getElementById('gallery');
+      const portfolio = new URL('../', location.href);
+      const portfolioTitle = document.title;
+      let sourcePromise;
+      let route = 0;
+      let lastCard;
+
+      function casesFromPortfolio() {
+        if (!sourcePromise) {
+          sourcePromise = fetch(portfolio).then(async response => {
+            if (!response.ok) throw new Error('无法读取案例');
+            const template = document.createElement('template');
+            template.innerHTML = await response.text();
+            return template.content;
+          }).catch(error => {
+            sourcePromise = undefined;
+            throw error;
+          });
+        }
+        return sourcePromise;
+      }
+
+      function moveResultsToTop(article, card) {
+        const glance = document.createElement('div');
+        glance.className = 'menu-glance';
+        const results = article.querySelector('.results, .inline-metrics');
+        if (results) {
+          const note = results.nextElementSibling;
+          glance.append(results);
+          if (note?.classList.contains('fine-print')) glance.append(note);
+        } else {
+          glance.append(card.querySelector('.menu-evidence').cloneNode(true));
+        }
+        article.querySelector('.case-heading').after(glance);
+      }
+
+      async function showCase(initial = false) {
+        const currentRoute = ++route;
+        const hash = location.hash;
+        const card = cards.find(item => item.getAttribute('href') === hash);
+        if (gallery.open) gallery.close();
+
+        if (!card) {
+          detail.hidden = true;
+          menu.hidden = false;
+          document.title = portfolioTitle;
+          if (!initial && hash !== '#main') {
+            window.scrollTo(0, 0);
+            lastCard?.focus({ preventScroll: true });
+          }
+          return;
+        }
+
+        lastCard = card;
+        menu.hidden = true;
+        detail.hidden = false;
+        const label = card.querySelector('h3').textContent;
+        document.title = label + '｜孙岩萍';
+        for (const link of links) {
+          if (link.getAttribute('href') === hash) link.setAttribute('aria-current', 'page');
+          else link.removeAttribute('aria-current');
+        }
+        const loading = document.createElement('p');
+        loading.className = 'menu-loading';
+        loading.setAttribute('role', 'status');
+        loading.textContent = '正在打开案例…';
+        content.replaceChildren(loading);
+        window.scrollTo(0, 0);
+
+        try {
+          const source = await casesFromPortfolio();
+          if (currentRoute !== route) return;
+          const original = source.querySelector('article.case' + hash);
+          if (!original) throw new Error('案例不存在');
+          const article = original.cloneNode(true);
+          for (const element of article.querySelectorAll('[src], [href]')) {
+            const attribute = element.hasAttribute('src') ? 'src' : 'href';
+            element.setAttribute(attribute, new URL(element.getAttribute(attribute), portfolio));
+          }
+          moveResultsToTop(article, card);
+          content.replaceChildren(article);
+          if (!initial) {
+            const heading = article.querySelector('h2');
+            heading.tabIndex = -1;
+            heading.focus({ preventScroll: true });
+          }
+        } catch {
+          if (currentRoute !== route) return;
+          const fallback = document.createElement('a');
+          fallback.href = new URL(hash, portfolio);
+          fallback.textContent = '在长页版查看「' + label + '」';
+          const message = document.createElement('p');
+          message.className = 'menu-loading';
+          message.append('暂时无法加载案例。', fallback);
+          content.replaceChildren(message);
+        }
+      }
+
+      window.addEventListener('hashchange', () => showCase());
+      showCase(true);
+    })();
+  </script>
+</body>
+</html>
